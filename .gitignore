@@ -121,3 +121,6 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# secret key
+secret_key.json
