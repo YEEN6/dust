@@ -40,5 +40,3 @@ def getpm_Grade_Value(stationName):
     pm25Grade_lastweek = [convertGrade(i) for i in str(soup.findAll('pm25grade')).split(',')]
 
     return pm10Grade_lastweek, pm25Grade_lastweek, pm10Value_lastweek, pm25Value_lastweek
-#Test code
-#getpmValue('중구')
