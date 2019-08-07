@@ -1,0 +1,63 @@
+<!-- /templates/index.html  -->
+
+{% extends 'index.html' %}
+{% block content %}
+<script src="static/Chart.min.js"></script>
+<script src="static/utils.js"></script>
+<pre>     </pre>
+<h5>{{today}} 포항시 남구 효곡동 대기오염 현황</h5>
+<p>측정소 : {{ stationLoc }}</p>
+<p>미세먼지 : {{g_pm10_today}}(pm10,{{ v_pm10_today }} µg/m3)
+    {% if v_pm10_today <= 30 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm10_today <= 80 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm10_today <=  150 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm10_today > 150 %}
+    <img src="static/images/soso.png" width = "60">
+    {% endif %}
+
+
+    초미세먼지 : {{g_pm25_today}}(pm25,{{ v_pm25_today }} µg/m3)
+    {% if v_pm25_today <= 30 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm25_today <= 80 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm25_today <=  150 %}
+    <img src="static/images/soso.png" width = "60">
+    {% elif v_pm25_today > 150 %}
+    <img src="static/images/soso.png" width = "60">
+    {% endif %} </p>
+
+
+<h6>주간 예상 판매량(KF94, KF80, 일반)</h6>
+<!-- pie chart canvas element -->
+<canvas id="countries" width="600" height="400"></canvas>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: {{ x_week | safe }},
+            datasets: [{
+                label: '예상 총 판매량',
+                backgroundColor: 'rgb(149, 222, 222)',
+                borderColor: 'rgb(149, 222, 222)',
+                data: {{ y_pred | safe }},
+                // 다음주 총 판매량 나타내줘야함
+            }]
+        },
+
+        // Configuration options go here
+        options: {
+        }
+    });
+
+var income = document.getElementById("income").getContext("2d");
+new Chart(income).Bar(barData);
+</script>
+
+<pre>     </pre>
+{% endblock %}
