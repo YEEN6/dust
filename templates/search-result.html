@@ -1,0 +1,26 @@
+<!-- {% extends 'index.html' %} -->
+
+{% block article %}
+
+<div class="table-responsive">
+<table class="table" id="search">
+    <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">주소</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for content in contents %}
+        <tr id=search_table class="clickable-row" action="{{ url_for('passParameter') }}">
+            <td> {{ content['title'] }} </td>
+            <td> {{ content['address'] }} </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}
+
+
