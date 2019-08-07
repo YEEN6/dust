@@ -21,7 +21,7 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">미세몬지</h3>
+          <h3 class="masthead-brand">미세먼지</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="#">미세먼지 현황</a>
@@ -30,10 +30,13 @@
         </div>
       </header>
 
+
+      <!-- logo and search form -->
+
       <main role="main" class="inner cover">
         <img src="static/images/maskIcon.png">
 
-        <form>
+        <form action="{{ url_for('getLocationList')}}" method="post" >
             <div class="form-group">
                 <label for="inputSearch">Search</label>
                 <input type="search" class="form-control" id="inputSearch" aria-describedby="searchHelp" placeholder="검색어를 입력하세요">
@@ -45,6 +48,20 @@
         <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
         <p class="lead">
         </p>
+        <!-- end of logo and search form -->
+
+
+
+        <!-- show search result page -->
+
+        <article>
+          {% search result %}  {% end search result %}
+        </article>
+
+
+       <!-- end of showing search reuslt page -->
+
+
       </main>
 
       <footer class="mastfoot mt-auto">
