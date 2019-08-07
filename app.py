@@ -28,12 +28,6 @@ def passParameter():
 
     return render_template()
 
-
-with app.test_request_context():
-    print(url_for('index'))
-    print(url_for('getLocationList'))
-    print(url_for(('passParameter')))
-
 @app.route('/info')
 def info():
     # 그래프 x축 날짜
@@ -62,3 +56,10 @@ def info():
                            g_pm10_today=g_pm10_today, g_pm25_today=g_pm25_today,\
                            stationLoc=stationLoc, today=today
                            )
+
+
+with app.test_request_context():
+    print(url_for('index'))
+    print(url_for('getLocationList'))
+    print(url_for('passParameter'))
+    print(url_for('info'))
