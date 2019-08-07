@@ -123,4 +123,4 @@ build/
 *.egg-info/
 
 # secret key
-secret_key.json
+search/secret_key.json
