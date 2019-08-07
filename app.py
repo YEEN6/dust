@@ -12,6 +12,12 @@ def hello_world():
 def index():
     return render_template('index.html')
 
+@app.route('/search')
+def getLocationList():
+
+    return
+
 
 with app.test_request_context():
     print(url_for('index'))
+    print(url_for('getLocationList'))
