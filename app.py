@@ -1,6 +1,6 @@
-from flask import Flask
-from flask import render_template
-from flask import url_for
+from flask import Flask, render_template, request, url_for, jsonify
+
+from search.getLocation import get_location
 
 app = Flask(__name__)
 
@@ -12,10 +12,13 @@ def hello_world():
 def index():
     return render_template('index.html')
 
-@app.route('/search')
+@app.route('/search', methods=['POST'])
 def getLocationList():
+    result = request.form['searchInput']
+    print(result)
+    response_data = get_location(result)
 
-    return
+    return render_template('search-result.html', contents=response_data)
 
 
 with app.test_request_context():

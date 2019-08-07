@@ -31,21 +31,44 @@
       </header>
 
 
-      <!-- logo and search form -->
+      <!-- logo -->
 
       <main role="main" class="inner cover">
         <img src="static/images/maskIcon.png">
 
-        <form action="{{ url_for('getLocationList')}}" method="post" >
+
+        <!-- search form -->
+          <script>
+          $(document).ready(function() {
+            $('form').on('submit', function(event) {
+              $.ajax({
+                data : {
+                  searchInput : $('form').serialize()
+                },
+                type : 'POST',
+                url : '/search'
+              })
+              .done(function(data) {
+                  $('#output').text(data.output).show();
+            });
+              event.preventDefault();
+            });
+          });
+
+
+          </script>
+
+
+        <form action="{{ url_for('getLocationList') }}" method="post" >
             <div class="form-group">
-                <label for="inputSearch">Search</label>
-                <input type="search" class="form-control" id="inputSearch" aria-describedby="searchHelp" placeholder="검색어를 입력하세요">
+                <label for="searchInput">Search</label>
+                <input type="search" class="form-control" name="searchInput" id="searchInput" aria-describedby="searchHelp" placeholder="검색어를 입력하세요">
                 <small id="searchHelp" class="form-text text-muted">원하는 장소의 건물명, 도로명주소, 지번주소로 검색</small>
             </div>
             <button type="submit" class="btn btn-lg btn-secondary">Submit</button>
         </form>
-          <h1 class="cover-heading">Cover your page.</h1>
-        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          <h1 class="cover-heading" id="output"></h1>
+        <p class="lead"></p>
         <p class="lead">
         </p>
         <!-- end of logo and search form -->
@@ -55,7 +78,7 @@
         <!-- show search result page -->
 
         <article>
-          {% search result %}  {% end search result %}
+          {% block article %}  {% endblock %}
         </article>
 
 
@@ -78,6 +101,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ </body>
 </html>
