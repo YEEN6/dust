@@ -21,29 +21,22 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
-          <h3 class="masthead-brand">미세먼지</h3>
+          <h3 class="masthead-brand">조 이름?</h3>
           <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#">Home</a>
-            <a class="nav-link" href="#">미세먼지 현황</a>
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link active" href="/index">Home</a>
+            <a class="nav-link" href="https://www.airkorea.or.kr/web">전국미세먼지</a>
+            <a class="nav-link" href="https://github.com/YEEN6/dust"><img src="static/images/gitlogo.png" width = "30px"></a>
           </nav>
         </div>
       </header>
 
 
       <!-- logo -->
-
       <main role="main" class="inner cover">
-        <img src="static/images/maskIcon.png" width = "200">
-
-
+        <p><img src="static/images/maskIcon.png" class="img-fluid" alt="Responsive image"></p>
         <!-- search form -->
-
-
-
         <form action="{{ url_for('getLocationList') }}" method="post" >
             <div class="form-group">
-                <label for="searchInput">Search</label>
                 <input type="search" class="form-control" name="searchInput" id="searchInput" aria-describedby="searchHelp" placeholder="검색어를 입력하세요">
                 <small id="searchHelp" class="form-text text-muted">원하는 장소의 건물명, 도로명주소, 지번주소로 검색</small>
             </div>
@@ -53,29 +46,21 @@
         <p class="lead"></p>
         {% block content %}
         {% endblock %}
-        <h1 class="cover-heading">Cover your page.</h1>
-        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-        <p class="lead">
         </p>
         <!-- end of logo and search form -->
 
 
 
         <!-- show search result page -->
-
         <article>
           {% block article %}  {% endblock %}
         </article>
-
-
-       <!-- end of showing search reuslt page -->
-
-
+        <!-- end of showing search reuslt page -->
       </main>
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+          <p><small class="form-text text-center font-weight-light">청년 AI·Big Data 아카데미 7기 B반 1조</small></p>
         </div>
       </footer>
     </div>

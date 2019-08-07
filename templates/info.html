@@ -7,7 +7,7 @@
 <pre>     </pre>
 <h5>{{today}} 포항시 남구 효곡동 대기오염 현황</h5>
 <p>측정소 : {{ stationLoc }}</p>
-<p>미세먼지 : {{g_pm10_today}}(pm10,{{ v_pm10_today }} µg/m3)
+<p><small class="font-weight-light">미세먼지(pm10) : {{g_pm10_today}}({{ v_pm10_today }} µg/m3) </small>
     {% if v_pm10_today <= 30 %}
     <img src="static/images/soso.png" width = "60">
     {% elif v_pm10_today <= 80 %}
@@ -17,7 +17,6 @@
     {% elif v_pm10_today > 150 %}
     <img src="static/images/soso.png" width = "60">
     {% endif %}
-
 
     초미세먼지 : {{g_pm25_today}}(pm25,{{ v_pm25_today }} µg/m3)
     {% if v_pm25_today <= 30 %}
@@ -30,11 +29,10 @@
     <img src="static/images/soso.png" width = "60">
     {% endif %} </p>
 
-
+<div>
 <h6>주간 예상 판매량(KF94, KF80, 일반)</h6>
-<!-- pie chart canvas element -->
-<canvas id="countries" width="600" height="400"></canvas>
-<canvas id="myChart" width="400" height="400"></canvas>
+<!-- bar chart canvas element -->
+<canvas id="myChart" class='img-responsive' ></canvas>
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
@@ -54,9 +52,21 @@
         options: {
         }
     });
-
 var income = document.getElementById("income").getContext("2d");
 </script>
+</div>
 
-<pre>     </pre>
+<h6>최다 판매 예상 모델<small class="font-weight-light">(KF등급기준)</small></h6>
+<div class="row align-items-center">
+        <div class="col">
+            <img src="static/images/KF94.png" alt="Responsive image">
+        </div>
+        <div class="col">
+            <img src="static/images/KF80.png" alt="Responsive image">
+        </div>
+        <div class="col">
+            <img src="static/images/KF00.png" alt="Responsive image">
+        </div>
+</div>
+
 {% endblock %}
