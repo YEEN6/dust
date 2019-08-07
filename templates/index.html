@@ -112,6 +112,11 @@
       $(document).ready(function($) {
         $(".clickable-row").click(function() {
           window.location = $(this).data("action");
+          $.ajax({
+            data: {
+              address: $('')
+            }
+          })
         });
       });
     </script>
