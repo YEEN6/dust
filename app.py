@@ -15,3 +15,7 @@ def index():
 
 with app.test_request_context():
     print(url_for('index'))
+
+@app.route('/test')
+def test():
+    return render_template('index.html')
