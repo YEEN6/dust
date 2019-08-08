@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
-
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
     <title>청년 AI·Big Data 아카데미 7기 B반 1조 빅데이터 프로젝트</title>
 
     <!-- Bootstrap core CSS -->
@@ -14,9 +14,19 @@
 
     <!-- Custom styles for this template -->
     <link href="static/css/cover.css" rel="stylesheet">
+
+    <!-- Google Webfonts-->
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
-    <style>
-      div {
+
+    <style type="text/css">
+    body {
+    background-image: url("static/images/seoul.jpg"); !important;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: repeat;
+    }
+    div {
         font-family: 'Do Hyeon', sans-serif;
         font-size: 23px;
       }
@@ -38,8 +48,10 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
+          <h3 class = "masthead-brand text-left">끌리네어(Kkleanair)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active font-weight-light" href="/index" >홈</a>
+            &nbsp;<a class="nav-link font-weight-light" href="/info">예측</a>
             &nbsp;<a class="nav-link font-weight-light" href="https://www.airkorea.or.kr/web" target="_blank">전국미세먼지</a>
             &nbsp;<a class="nav-link font-weight-light" href="/team">팀 소개</a>
             &nbsp;<a class="nav-link font-weight-light" href="https://github.com/YEEN6/dust" target="_blank"><img src="static/images/gitlogo.png" width = "30px"></a>
@@ -48,16 +60,17 @@
       </header>
 
 
+
       <!-- logo -->
       <main role="main" class="inner cover">
-        <p><img src="static/images/maskIcon.png" class="img-fluid" alt="Responsive image"></p>
+        <a><img src="static/images/maskIcon.png" class="img-fluid" alt="Responsive image"></a>
         <!-- search form -->
         <form action="{{ url_for('getLocationList') }}" name="value" method="post" >
             <div class="form-group">
-                <label for="searchInput">Search</label>
+                <label for="searchInput"></label>
                 <input type="search" class="form-control" name="searchInput" id="searchInput"  aria-describedby="searchHelp" placeholder="검색어를 입력하세요">
 
-                <small id="searchHelp" class="form-text text-muted">원하는 장소의 건물명, 도로명주소, 지번주소로 검색</small>
+                <small id="searchHelp" class="form-text font-weight-light">원하는 장소의 건물명, 도로명주소, 지번주소로 검색</small>
             </div>
             <button type="submit" class="btn btn-lg btn-secondary">Submit</button>
         </form>

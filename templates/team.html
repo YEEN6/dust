@@ -15,8 +15,19 @@
     <!-- Custom styles for this template -->
       <link href="static/css/cover.css" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap&subset=korean" rel="stylesheet">
-    <style>
-      div {
+    <style type="text/css">
+    body {
+    background-image: url("static/images/seoul.jpg"); !important;
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //opacity: 0.5;
+    }
+    div {
         font-family: 'Do Hyeon', sans-serif;
         font-size: 23px;
       }
@@ -38,8 +49,10 @@
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
       <header class="masthead mb-auto">
         <div class="inner">
+            <h3 class = "masthead-brand">끌리네어(Kkleanair)</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link font-weight-light" href="/index">홈</a>
+            <a class="nav-link font-weight-light" href="/info">예측</a>
             &nbsp;<a class="nav-link font-weight-light" href="https://www.airkorea.or.kr/web" target="_blank">전국미세먼지</a>
             &nbsp;<a class="nav-link font-weight-light active" href="/team">팀 소개</a>
             &nbsp;<a class="nav-link font-weight-light" href="https://github.com/YEEN6/dust" target="_blank"><img src="static/images/gitlogo.png" width = "30px"></a>

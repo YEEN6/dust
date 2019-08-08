@@ -11,40 +11,34 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <p>미세먼지<small class="font-weight-light">(pm10)</small> : {{g_pm10_today}}({{ v_pm10_today }} µg/m3)
-    {% if v_pm10_today <= 30 %}
-        <div class="img-fluid">
-        <img src="static/images/soso.png" >
-        {% elif v_pm10_today <= 80 %}
-        <img src="static/images/soso.png" >
-        {% elif v_pm10_today <=  150 %}
-        <img src="static/images/soso.png" >
-        {% elif v_pm10_today > 150 %}
-        <img src="static/images/soso.png" >
-    </div>
+      미세먼지<small class="font-weight-light">(pm10)</small> : {{g_pm10_today}}({{ v_pm10_today }} µg/m3)
+        {% if v_pm10_today <= 30 %}
+            <img src="static/images/soso.png" class="img-fluid" >
+            {% elif v_pm10_today <= 80 %}
+            <img src="static/images/soso.png" class="img-fluid">
+            {% elif v_pm10_today <=  150 %}
+            <img src="static/images/soso.png" class="img-fluid">
+            {% elif v_pm10_today > 150 %}
+            <img src="static/images/soso.png" class="img-fluid">
         {% endif %}
     </div>
 
     <div class="col">
       초미세먼지<small class="font-weight-light">(pm25)</small> : {{g_pm25_today}}({{ v_pm25_today }} µg/m3)
-    {% if v_pm25_today <= 30 %}
-    <div class="img-fluid">
-        <img src="static/images/soso.png">
-        {% elif v_pm25_today <= 80 %}
-        <img src="static/images/soso.png">
-        {% elif v_pm25_today <=  150 %}
-        <img src="static/images/soso.png">
-        {% elif v_pm25_today > 150 %}
-        <img src="static/images/soso.png">
-    </div>
-    {% endif %} </p>
+        {% if v_pm25_today <= 30 %}
+            <img src="static/images/soso.png" class="img-fluid">
+            {% elif v_pm25_today <= 80 %}
+            <img src="static/images/soso.png" class="img-fluid">
+            {% elif v_pm25_today <=  150 %}
+            <img src="static/images/soso.png" class="img-fluid">
+            {% elif v_pm25_today > 150 %}
+            <img src="static/images/soso.png" class="img-fluid">
+        {% endif %}
     </div>
   </div>
 </div>
-
-
 <div>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+    <p style="margin-bottom:5cm;"></p>
 <h6>주간 예상 판매량(KF94, KF80, 일반)</h6>
 <!-- bar chart canvas element -->
 <canvas id="myChart" class='img-responsive' ></canvas>
@@ -70,7 +64,7 @@
 var income = document.getElementById("income").getContext("2d");
 </script>
 </div>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="margin-bottom:5cm;"></p>
 <h6>최다 판매 예상 모델<small class="font-weight-light">(KF등급기준)</small></h6>
 <div class="row align-items-center">
         <div class="col">
@@ -83,4 +77,5 @@ var income = document.getElementById("income").getContext("2d");
             <img src="static/images/KF00.png" alt="Responsive image">
         </div>
 </div>
+<p style="margin-top:5cm;"></p>
 {% endblock %}
