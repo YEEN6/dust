@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return render_template('index.html')
 
 @app.route('/index')
 def index():
@@ -46,6 +46,7 @@ def info():
 
     # 오늘자 대기 정보
     today = date.today().strftime("%Y년 %m월 %d일")
+    curLocation = '포항시 남구'
     stationLoc = '대도동'
     g_pm10_list, g_pm25_list, v_pm10_list, v_pm25_list = pm.getpm_Grade_Value(stationLoc)
     v_pm10_today, v_pm25_today, g_pm10_today, g_pm25_today = v_pm10_list[0], v_pm25_list[0], g_pm10_list[0], \
@@ -54,8 +55,13 @@ def info():
     return render_template('info.html', x_week = x_week, y_pred = y_pred, y_sum = y_sum, \
                            v_pm10_today=v_pm10_today, v_pm25_today=v_pm25_today,\
                            g_pm10_today=g_pm10_today, g_pm25_today=g_pm25_today,\
-                           stationLoc=stationLoc, today=today
+                           stationLoc=stationLoc, today=today, curLocation = curLocation
                            )
+
+
+@app.route('/team')
+def team():
+    return render_template('team.html')
 
 
 with app.test_request_context():
@@ -63,3 +69,4 @@ with app.test_request_context():
     print(url_for('getLocationList'))
     print(url_for('passParameter'))
     print(url_for('info'))
+    print(url_for('team'))
