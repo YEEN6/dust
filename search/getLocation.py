@@ -47,21 +47,20 @@ def call_location_api(location):
 
 
 def get_location(location):
-    response_data = call_location_api(location)
+    response_data = call_location_api(location.encode('utf-8'))
 
     data = json.loads(response_data)
     contents = data['items']
 
-    # data = ast.literal_eval(response_data)
-    #pp = pprint.PrettyPrinter(indent=4)
-    #pp.pprint(data)
+    data = ast.literal_eval(response_data)
+    pp = pprint.PrettyPrinter(indent=4)
+    pp.pprint(data)
 
     result_data = []
 
     for content in contents:
         temp = {}
         content['title'] = content['title'].replace("<b>", "").replace("</b>", "")
-        print(content['title'])
         temp['title'] = content['title']
         temp['address'] = content['address']
         result_data.append(temp)
